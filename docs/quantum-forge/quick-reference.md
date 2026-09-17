@@ -17,7 +17,7 @@ A useful game-programming model:
 
 ## Platform and edition choices
 
-This repository currently pins `quantum-forge` 2.7.0 and `quantum-forge-engine` 1.4.0 in `package-lock.json`. See the [installed-package audit](installed-package-audit.md) before using bundled examples: several README/context snippets do not match these releases' declarations.
+This repository currently pins `quantum-forge` 2.7.0 and `quantum-forge-engine` 1.4.0 in `bun.lock`. See the [installed-package audit](installed-package-audit.md) before using bundled examples: several README/context snippets do not match these releases' declarations.
 
 ### TypeScript/Web
 
@@ -39,7 +39,7 @@ npx -y quantum-forge-engine init my-game \
 - Packages are ESM-only.
 - `starter` supplies Vite, TypeScript, pure logic modules, an Engine subclass, Pixi rendering, a controller, and a test.
 - `quantum-pong` is the larger worked example.
-- A bare `npm install quantum-forge-engine` does not scaffold Vite, tests, or application files. Its rendering/audio peers (`pixi.js`, `howler`) are optional and are not present in this repository yet.
+- A bare engine install does not scaffold Vite, tests, or application files. This repository now includes that setup and installs the optional `pixi.js` rendering peer; `howler` remains uninstalled.
 
 Editions:
 

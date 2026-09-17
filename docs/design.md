@@ -46,7 +46,7 @@ Fairness acceptance criteria:
 
 ### 2.3 Colour = state, not owner
 
-Halves and diamonds are colored by state, not by the player who placed them. `0` is red, `1` is blue, and a state under an unresolved `H` is violet/shimmering. Ownership is retained for history and statistics, but does not determine a cell's color.
+Halves are colored by their prepared state, not by the player who placed them: `|0⟩` is blue and `|1⟩` is red. Resolved diamonds are colored by payoff: value `1` is blue and value `0` is red. A state under an unresolved `H` is violet/shimmering. Ownership is retained for history and statistics, but does not determine a piece's color.
 
 ### 2.4 Quantum Forge is the runtime backend
 

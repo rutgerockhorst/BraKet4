@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#090b18" />
+    <title>Braket Four</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="game-header">
+        <div>
+          <p class="eyebrow">QUANTUM CONNECTION GAME</p>
+          <h1>Braket Four</h1>
+        </div>
+        <div id="turn-indicator" class="turn-indicator" aria-live="polite"></div>
+      </header>
+
+      <main class="game-shell">
+        <section class="board-panel" aria-label="Game board">
+          <div id="loading" class="loading" role="status">Heating the Quantum Forge…</div>
+          <div id="column-controls" class="column-controls" aria-label="Choose a column"></div>
+          <canvas id="game-canvas" width="900" height="760" hidden></canvas>
+          <div id="accessible-grid" class="sr-only" role="grid" aria-label="Bracket board"></div>
+          <div id="game-announcement" class="sr-only" aria-live="assertive"></div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="panel operator-panel">
+            <p class="panel-label">Operator forge</p>
+            <h2 id="required-action">Choose a column</h2>
+            <p id="operator-help">Build each cell as ket → operator → bra.</p>
+            <div id="operator-controls" class="operator-controls" hidden>
+              <button type="button" data-operator="I"><strong>I</strong><span>preserve</span></button>
+              <button type="button" data-operator="X"><strong>X</strong><span>invert</span></button>
+              <button type="button" data-operator="H"><strong>H</strong><span>50 / 50</span></button>
+            </div>
+          </section>
+
+          <section class="panel rules-card">
+            <p class="panel-label">The sandwich</p>
+            <div class="formula">|⟨bra| A |ket⟩|²</div>
+            <ul>
+              <li><b>I</b> rewards matching halves.</li>
+              <li><b>X</b> rewards opposite halves.</li>
+              <li><b>H</b> asks the quantum forge.</li>
+            </ul>
+          </section>
+
+          <section class="panel history-panel">
+            <div class="history-heading">
+              <p class="panel-label">Move log</p>
+              <div>
+                <button id="undo" type="button" class="icon-button" aria-label="Undo move">↶</button>
+                <button id="redo" type="button" class="icon-button" aria-label="Redo move">↷</button>
+                <button id="restart" type="button" class="icon-button" aria-label="Start a new game">⟳</button>
+              </div>
+            </div>
+            <ol id="move-log" class="move-log"></ol>
+          </section>
+        </aside>
+      </main>
+
+      <footer>
+        <span id="attribution"></span>
+        <span> · Outcomes collapse when the bra lands.</span>
+      </footer>
+    </div>
+    <script>
+      window.__braketBooted = false;
+      window.setTimeout(function () {
+        if (window.__braketBooted) return;
+        var loading = document.getElementById("loading");
+        if (loading) {
+          loading.textContent = "The game module did not start. Open the app through its development or preview server rather than directly from the filesystem.";
+          loading.classList.add("error");
+        }
+      }, 7000);
+    </script>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>

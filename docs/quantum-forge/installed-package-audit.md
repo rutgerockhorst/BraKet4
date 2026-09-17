@@ -4,15 +4,16 @@ This is the compatibility layer between the local digest and the exact npm relea
 
 ## Installed baseline
 
-Resolved by `package-lock.json`:
+Resolved by `bun.lock`:
 
 | Package | Version | Role |
 |---|---:|---|
 | `quantum-forge` | 2.7.0 | WASM loader, simulator API, property manager, recorder, Vite plugin |
 | `quantum-forge-engine` | 1.4.0 | Engine, rendering, input, events, operations, and optional systems |
+| `pixi.js` | 8.21.0 | Installed peer required by the engine rendering entry point; the game uses its `CanvasRenderer` |
 | `eventemitter3` | 5.0.4 | Engine dependency |
 
-Both Quantum Forge packages require Node 18 or newer. The engine declares `pixi.js` and `howler` as optional peers; neither is installed yet. This is a bare dependency install, not a scaffolded game: there is no Vite/TypeScript/test setup or application source yet.
+Both Quantum Forge packages require Node 18 or newer. The engine declares `pixi.js` and `howler` as optional peers. This game installs `pixi.js` 8.21.0 for rendering; `howler` is not installed. Vite, TypeScript, Vitest, and the application source are now configured in the repository.
 
 Package-specific references:
 
@@ -42,7 +43,7 @@ Verified for the Qubit edition:
 
 Known runtime defect in core 2.7.0:
 
-- The default binary's `getVersion()` returns `".."`. Use `package-lock.json` or `node_modules/quantum-forge/package.json` for version reporting.
+- The default binary's `getVersion()` returns `".."`. Use `bun.lock` or `node_modules/quantum-forge/package.json` for version reporting.
 
 ## Corrections to bundled documentation
 
