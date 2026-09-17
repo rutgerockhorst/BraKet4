@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "quantum-forge": "^2.7.0",
+    "quantum-forge-engine": "^1.4.0"
+  }
+}
