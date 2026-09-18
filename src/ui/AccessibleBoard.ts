@@ -2,7 +2,7 @@ import type { GameState, Slot } from "../engine/types";
 
 function slotLabel(slot: Slot): string {
   if (slot.value !== null && slot.ket && slot.op && slot.bra) {
-    const color = slot.value === 1 ? "blue" : "red";
+    const color = slot.value === 1 ? "red" : "blue";
     return `sandwich bra ${slot.bra.state}, operator ${slot.op.key}, ket ${slot.ket.state}, ${color} ${slot.value}`;
   }
   if (!slot.ket) return "empty, awaiting ket";
