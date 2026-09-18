@@ -13,7 +13,7 @@ export interface Settlement {
 }
 
 export function playerForValue(value: CellValue): PlayerId {
-  return value === 1 ? 0 : 1;
+  return value === 1 ? 1 : 0;
 }
 
 export function findSettlement(state: GameState): Settlement {
