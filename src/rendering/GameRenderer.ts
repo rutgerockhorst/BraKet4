@@ -109,7 +109,7 @@ export class GameRenderer extends CanvasRenderer {
     this.roundRect(x, y, size, size, 18, COLORS.cell, border, isAnimated ? 2 + pulse * 3 : 1);
 
     if (slot.value !== null) {
-      const color = slot.value === 1 ? COLORS.blue : COLORS.red;
+      const color = slot.value === 1 ? COLORS.red : COLORS.blue;
       const cx = x + size / 2;
       const cy = y + size / 2;
       const radius = 29 + pulse * 3;
